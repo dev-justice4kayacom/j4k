@@ -177,6 +177,8 @@
           <a href="#case" class="hover:text-neutral-900">Case</a>
           <a href="#practice" class="hover:text-neutral-900">Advocacy</a>
           <a href="#team" class="hover:text-neutral-900">Counsel</a>
+          <span aria-hidden="true">•</span>
+          <span id="email-wrap" class="text-neutral-700"></span>
         </nav>
       </div>
       <p class="mt-4 text-xs">This site is a parody with a serious tone. It advocates for humane treatment of companion animals and rejects the use of unnecessary force.</p>
@@ -184,7 +186,22 @@
   </footer>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Email protection (set your email parts here)
+    const userPart = 'hello';           // <-- change to your user, e.g., 'hello' or 'press'
+    const domainPart = 'justice4kaya';    // <-- change to your domain (without TLD)
+    const tldPart = 'com';                // <-- change to your TLD, e.g., 'com'
+
+    const addr = `${userPart}@${domainPart}.${tldPart}`;
+    const link = document.createElement('a');
+    link.href = `mailto:${addr}`;
+    link.textContent = addr;
+    link.className = 'hover:text-neutral-900';
+
+    const wrap = document.getElementById('email-wrap');
+    if (wrap) wrap.appendChild(link);
   </script>
     <!-- Buy Me a Coffee Floating Button -->
   <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="justice4kaya" data-description="Support Justice for Kaya on Buy Me a Coffee" data-message="Thank you for supporting humane advocacy." data-color="#111111" data-position="Right" data-x_margin="
